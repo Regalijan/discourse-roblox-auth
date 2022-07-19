@@ -5,7 +5,7 @@
 # author: Wolftallemo
 # url: https://github.com/Wolftallemo/discourse-roblox-auth
 
-:enabled_site_setting :enable_roblox_logins
+enabled_site_setting :enable_roblox_logins
 
 require_relative 'lib/validators/EnableRobloxOpenCloudOAuth.rb'
 
