@@ -1,0 +1,9 @@
+en:
+  site_settings:
+    enable_roblox_logins: "Whether Roblox OAuth should be enabled"
+    roblox_client_id: "Roblox OAuth client id"
+    roblox_secret: "Roblox OAuth client secret"
+
+  discourse_roblox_auth:
+    errors:
+      cannot_remove: "Credentials cannot be removed - please disable Roblox OAuth first"

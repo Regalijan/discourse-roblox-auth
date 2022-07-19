@@ -1,0 +1,14 @@
+plugins:
+  enable_roblox_logins:
+    default: false
+
+  roblox_client_id:
+    client: false
+    default: ''
+    validator: ValidateEnable
+
+  roblox_secret:
+    client: false
+    default: ''
+    secret: true
+    validator: ValidateEnable
