@@ -26,7 +26,7 @@ class Auth::RobloxAuthenticator < Auth::ManagedAuthenticator
     
     info do
       {
-        name: raw_info['nickname']
+        name: raw_info['nickname'],
         email: "#{SecureRandom.hex(24)}@notreal.invalid"
       }
     end
