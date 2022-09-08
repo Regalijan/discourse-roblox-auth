@@ -7,6 +7,7 @@
 
 enabled_site_setting :enable_roblox_logins
 
+require 'base64'
 require_relative 'lib/validators/EnableRobloxOpenCloudOAuth.rb'
 
 class Auth::RobloxAuthenticator < Auth::ManagedAuthenticator
@@ -20,9 +21,26 @@ class Auth::RobloxAuthenticator < Auth::ManagedAuthenticator
             token_url: 'https://apis.roblox.com/oauth/v1/token'
 
     option :authorize_options, 'scope'
+    
+    uid { raw_info['sub'] }
+    
+    info do
+      {
+        name: raw_info['nickname']
+        email: "#{SecureRandom.hex(24)}@notreal.invalid"
+      }
+    end
 
     def callback_url
       full_host + script_name + callback_path
+    end
+    
+    def raw_info
+      @raw_info ||= JSON.parse(
+        Base64.urlsafe_decode64(
+          access_token['id_token'].split('.')[1]
+        )
+      )
     end
   end
 
