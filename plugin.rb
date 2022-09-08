@@ -19,7 +19,7 @@ class Auth::RobloxAuthenticator < Auth::ManagedAuthenticator
             authorize_url: 'https://authorize.roblox.com/',
             token_url: 'https://apis.roblox.com/oauth/v1/token'
 
-    option :authorize_options, %i[scope permissions]
+    option :authorize_options, 'scope'
 
     def callback_url
       full_host + script_name + callback_path
