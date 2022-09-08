@@ -12,7 +12,7 @@ require_relative 'lib/validators/EnableRobloxOpenCloudOAuth.rb'
 class Auth::RobloxAuthenticator < Auth::ManagedAuthenticator
   class RobloxStrategy < OmniAuth::Strategies::OAuth2
     option :name, 'roblox'
-    option :scope, 'profile email'
+    option :scope, 'openid profile email'
 
     option :client_options,
             site: 'https://apis.roblox.com/oauth/',
