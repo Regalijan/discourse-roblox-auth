@@ -6,7 +6,7 @@ class ValidateEnable
   end
 
   def valid_value?(val)
-    return true if !SiteSetting.enable_roblox_logins?
+    return true unless SiteSetting.enable_roblox_logins?
 
     !val.empty?
   end
