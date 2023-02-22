@@ -15,12 +15,12 @@ require_relative 'lib/validators/EnableRobloxOpenCloudOAuth'
 class Auth::RobloxAuthenticator < Auth::ManagedAuthenticator
   class RobloxStrategy < OmniAuth::Strategies::OAuth2
     option :name, 'roblox'
-    option :scope, 'openid profile email'
+    option :scope, 'openid profile'
 
     option :client_options,
-           site: 'https://apis.roblox.com/oauth/',
-           authorize_url: 'https://authorize.roblox.com/',
-           token_url: 'https://apis.roblox.com/oauth/v1/token'
+           site: 'https://apis.roblox.com/oauth/v1/',
+           authorize_url: 'authorize',
+           token_url: 'token'
 
     option :authorize_options, 'scope'
 
@@ -29,7 +29,6 @@ class Auth::RobloxAuthenticator < Auth::ManagedAuthenticator
     info do
       {
         name: raw_info['nickname'],
-        email: "#{SecureRandom.hex(24)}@notreal.invalid",
         image: retrieve_image
       }
     end
@@ -80,3 +79,5 @@ class Auth::RobloxAuthenticator < Auth::ManagedAuthenticator
                       }
   end
 end
+
+auth_provider authenticator: Auth::RobloxAuthenticator.new
