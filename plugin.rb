@@ -50,7 +50,7 @@ class RobloxAuthenticator < Auth::ManagedAuthenticator
 
       return nil unless res.is_a?(Net::HTTPSuccess)
 
-      JSON.parse(res.body).data.first.imageUrl
+      JSON.parse(res.body)['data'].first['imageUrl']
     end
 
     def raw_info
