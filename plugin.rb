@@ -12,7 +12,7 @@ require 'base64'
 require 'net/http'
 require_relative 'lib/validators/EnableRobloxOpenCloudOAuth'
 
-class Auth::RobloxAuthenticator < Auth::ManagedAuthenticator
+class RobloxAuthenticator < Auth::ManagedAuthenticator
   class RobloxStrategy < OmniAuth::Strategies::OAuth2
     option :name, 'roblox'
     option :scope, 'openid profile'
@@ -80,4 +80,4 @@ class Auth::RobloxAuthenticator < Auth::ManagedAuthenticator
   end
 end
 
-auth_provider authenticator: Auth::RobloxAuthenticator.new
+auth_provider authenticator: RobloxAuthenticator.new
