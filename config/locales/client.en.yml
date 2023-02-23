@@ -1,0 +1,7 @@
+en:
+  js:
+    login:
+      roblox:
+        message: 'Authenticating with Roblox'
+        name: 'Roblox'
+        title: 'Log in with Roblox'
