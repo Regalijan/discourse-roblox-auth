@@ -22,7 +22,7 @@ class RobloxAuthenticator < Auth::ManagedAuthenticator
            authorize_url: 'authorize',
            token_url: 'token'
 
-    option :authorize_options, 'scope'
+    option :authorize_options, %i[scope]
 
     uid { raw_info['sub'] }
 
