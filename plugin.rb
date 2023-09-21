@@ -4,7 +4,7 @@
 # about: Allows users to sign in with their Roblox account
 # version: 0.0.1
 # author: Wolftallemo
-# url: https://github.com/Wolftallemo/discourse-roblox-auth
+# url: https://github.com/Regalijan/discourse-roblox-auth
 
 enabled_site_setting :enable_roblox_logins
 
@@ -29,28 +29,12 @@ class RobloxAuthenticator < Auth::ManagedAuthenticator
     info do
       {
         name: raw_info['nickname'],
-        image: retrieve_image
+        image: raw_info['picture']
       }
     end
 
     def callback_url
       full_host + script_name + callback_path
-    end
-
-    def retrieve_image
-      uri = URI('https://thumbnails.roblox.com/v1/users/avatar-headshot')
-      uri.query = URI.encode_www_form({
-                                        userIds: raw_info['sub'],
-                                        size: '720x720',
-                                        format: 'Png',
-                                        isCircular: 'false'
-                                      })
-
-      res = Net::HTTP.get_response(uri)
-
-      return nil unless res.is_a?(Net::HTTPSuccess)
-
-      JSON.parse(res.body)['data'].first['imageUrl']
     end
 
     def raw_info
