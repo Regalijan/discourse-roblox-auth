@@ -3,7 +3,7 @@
 # name: discourse-roblox-auth
 # about: Allows users to sign in with their Roblox account
 # version: 0.0.1
-# author: Regalijan
+# authors: Regalijan
 # url: https://github.com/Regalijan/discourse-roblox-auth
 
 enabled_site_setting :enable_roblox_logins
